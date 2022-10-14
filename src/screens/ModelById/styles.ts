@@ -15,6 +15,20 @@ export const Content = styled.div`
     margin-top: 72px;
     margin-left: 300px;
     padding: 1.5rem;
+
+    a {
+        color: ${({ theme }) => theme.colors.primary};
+        font-size: .875rem;
+        font-weight: 500;
+    }
+`
+export const Title = styled.h2`
+    font-weight: 500;
+    color: ${({ theme }) => theme.colors.gray_100};
+    strong {
+        font-weight: 600;
+        color: ${({ theme }) => theme.colors.primary};
+    }
 `
 export const Brands = styled.div`
     display: flex;
@@ -46,42 +60,37 @@ export const Brands = styled.div`
         }
     }
 `
-export const Breadcrumbing = styled.span`
+export const Form = styled.form`
+    margin-top: 1.5rem;
+    max-width: 500px;
     display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
-    gap: .5rem;
-    font-size: .75rem;
-
-    a {
-        font-size: .75rem;
-        font-weight: 500;
-        text-transform: capitalize;
-        color: ${({ theme }) => theme.colors.primary};
-    }
-    span {
-        text-transform: capitalize;
-        font-weight: 500;
-    }
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
 `
-
 export const Button = styled.button`
+    width: 375px;
     height: 48px;
-    
+    border-radius: 8px;
+    border: 0;
     padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: .5rem;
+
+    color: ${({ theme }) => theme.colors.primary};
     font-size: .875rem;
     font-weight: 500;
-    color: ${({theme}) => theme.colors.primary};
-    border: .5px solid ${({theme}) => theme.colors.primary};
-    border-radius: 8px;
-    background: #e1e5ff;
 
-    margin-bottom: 2rem;
-    svg {
-        color: ${({theme}) => theme.colors.primary};
-    }
+    background: ${({ theme }) => theme.colors.primary_light};
+`
+export const ButtonDelete = styled.button`
+    width: 375px;
+    height: 48px;
+    border-radius: 8px;
+    border: 0;
+    padding: 0 2rem;
+
+    color: ${({ theme }) => theme.colors.danger};
+    font-size: .875rem;
+    font-weight: 500;
+
+    background: ${({ theme }) => theme.colors.danger_light};
 `

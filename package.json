@@ -16,7 +16,8 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
     "react-notifications-component": "^4.0.1",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "vanilla-masker": "^1.2.0"
   },
   "devDependencies": {
     "@types/node": "18.8.2",

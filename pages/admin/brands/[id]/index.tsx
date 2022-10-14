@@ -1,11 +1,9 @@
 import { GetServerSideProps } from "next";
-import { Models } from "../../../../../src/screens/Models";
-import { api } from "../../../../../src/services/api";
+import { BrandById } from "../../../../src/screens/BrandById";
+import { api } from "../../../../src/services/api";
 
-export default function ModelsPage({brand}: any) {
-    return (
-        <Models brand={brand}/>
-    )
+export default function BrandByIdPage({brand}) {
+    return <BrandById brand={brand}/>
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
@@ -16,4 +14,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
             brand
         }
     }
-} 
+}

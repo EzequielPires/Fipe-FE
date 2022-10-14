@@ -6,8 +6,8 @@ import { api } from "../../services/api";
 import { FiPlus, FiRepeat } from "react-icons/fi";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { Container, Content, Brands, Title, Loading, Span, Breadcrumbing, Button } from "./styles";
-import { GrSync } from "react-icons/gr";
+import { Container, Content, Brands, Title, Breadcrumbing, Button } from "./styles";
+import { Loading } from "../../components/Loading";
 
 export function Versions({ data }: any) {
     const [model, setModel] = useState<any>();
@@ -18,7 +18,7 @@ export function Versions({ data }: any) {
 
     useEffect(() => {
         if (data && data != undefined) {
-            setModel(data.model);
+            setModel(data);
             setVersions(data.versions);
         }
     }, [data]);
@@ -26,16 +26,8 @@ export function Versions({ data }: any) {
     const makeSyncTable = async () => {
         try {
             setLoading(true);
-            const pendingVerses = versions.filter(item => !model.versions.find(version => version.name === item.name.toLowerCase()));
-            for (let i = 0; i < pendingVerses.length; i++) {
-                await api.post('fipe/version-model/create', {
-                    name: pendingVerses[i].name,
-                    code: pendingVerses[i].code,
-                    model_id: id_model
-                });
-            }
-            const data = await api.get(`model/${id_model}/versions`).then(res => res.data);
-            setModel(data.model);
+            const data = await api.get(`fipe-official/sync-version-model/${id_model}`).then(res => res.data);
+            setModel(data);
             setVersions(data.versions);
         } catch (error) {
             alert(error.message);
@@ -67,7 +59,7 @@ export function Versions({ data }: any) {
             <NavbarAdmin />
             <MenuAside />
             <Content>
-                {loading && <Loading>Carregando<Span /><Span /><Span /></Loading>}
+                {loading && <Loading />}
                 {model &&
                     <Breadcrumbing>
                         <Link href={`/admin/brands/`}>
@@ -92,7 +84,7 @@ export function Versions({ data }: any) {
                 <Title>Versões Cadastradas:</Title>
                 <Brands>
                     {model?.versions?.map((version: any) => (
-                        <Link href={`/admin/brands/${data.model.brand.id}/models/${data.model.id}/versions/${version.id}/years`}>
+                        <Link href={`/admin/brands/${data.brand.id}/models/${data.id}/versions/${version.id}/years`}>
                             <a key={version.id}>
                                 {version.name}
                             </a>

@@ -10,8 +10,7 @@ export default function AdminPage({brands}: any) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-    const brands = await api.get('brand').then(res => res.data.data);
-    console.log(brands);
+    const brands = await api.get('brand').then(res => res.data);
 
     return {
         props: {

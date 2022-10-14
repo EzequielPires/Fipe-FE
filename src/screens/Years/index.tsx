@@ -17,8 +17,7 @@ export function Years({ data }: any) {
 
     useEffect(() => {
         if (data) {
-            console.log(data);
-            setVersion(data.version);
+            setVersion(data);
             setYears(data.years);
         }
     }, [data]);

@@ -13,8 +13,8 @@ export function Dashboard({ brands }: any) {
             <Content>
                 <Brands>
                     {brands?.map((brand: any) => (
-                        <Link href={`/admin/brands/${brand.code}/models`}>
-                            <a key={brand.code}>
+                        <Link href={`/admin/brands/${brand.id}/models`} key={brand.id}>
+                            <a key={brand.id}>
                                 {brand.name}
                             </a>
                         </Link>

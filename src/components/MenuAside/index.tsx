@@ -6,12 +6,9 @@ import {
     FiSettings,
     FiHelpCircle,
     FiGrid,
-    FiPlusCircle,
-    FiHome,
-    FiCalendar,
-    FiUsers,
-    FiUserCheck
+    FiInfo
 } from "react-icons/fi"
+import { BiCar } from "react-icons/bi";
 import { useAuthenticate } from "../../contexts/AuthenticateContext";
 import {
     Container,
@@ -57,6 +54,12 @@ export function MenuAside() {
             <Content>
                 <Link href={getLink('/admin')} passHref>
                     <Item active={isActive('/admin')}><FiGrid />Dashboard</Item>
+                </Link>
+                <Link href={getLink('/fipe-vehicles')} passHref>
+                    <Item active={isActive('/fipe-vehicles')}><BiCar />Fipe veículos</Item>
+                </Link>
+                <Link href={getLink('/pendentes')} passHref>
+                    <Item active={isActive('/pendentes')}><FiInfo />Pendentes</Item>
                 </Link>
             </Content>
             <Footer>
